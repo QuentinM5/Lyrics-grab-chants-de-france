@@ -179,7 +179,7 @@ def main():
         completed = 0
         total = len(links)
 
-        with ThreadPoolExecutor(max_workers=6) as executor:
+        with ThreadPoolExecutor(max_workers=20) as executor:
             # On lance toutes les requêtes en parallèle
             futures = {executor.submit(fetch_one, url, temp_title): url for url, temp_title in links}
             
