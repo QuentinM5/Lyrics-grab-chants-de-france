@@ -50,7 +50,9 @@ def get_song_links(playlist_url: str) -> list[tuple[str, str]]:
     r = requests.get(playlist_url, headers=HEADERS, timeout=20)
     r.raise_for_status()
 
-    pattern = r'\\?"slug\\?"\s*:\s*\\?"([^"\\]+)\\?"'
+    # NOUVEAU MOTIF : On exige que le slug soit suivi d'une virgule puis de "title"
+    # Cela exclut automatiquement les auteurs qui sont suivis de "firstName"
+    pattern = r'\\?"slug\\?"\s*:\s*\\?"([^"\\]+)\\?",\s*\\?"title\\?"'
     matches = re.findall(pattern, r.text)
 
     songs = {}
