@@ -270,9 +270,9 @@ def generate_docx_content(playlist_title: str, songs_data: list[tuple[str, str]]
 
 # --- INTERFACE STREAMLIT ---
 def main():
-    st.set_page_config(page_title="Aspirateur de Carnets", page_icon="📖")
+    st.set_page_config(page_title="LyricsGrabber", page_icon="🎵")
     
-    st.title("Générateur de Carnet de Chants 📖")
+    st.title("LyricsGrabber (chantsdefrance.fr) 🎶")
     st.write("Générez un carnet prêt à imprimer ou à modifier à partir d'une playlist chantsdefrance.fr.")
 
     # 1. Initialisation de la mémoire
