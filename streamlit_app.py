@@ -356,14 +356,14 @@ def main():
         # Injection CSS pour forcer le 3ème bouton (DOCX) en bleu
         st.markdown("""
         <style>
-        div[data-testid="stColumn"]:nth-of-type(3) button,
-        div[data-testid="column"]:nth-of-type(3) button {
+        div[data-testid="stColumn"]:nth-of-type(2) button,
+        div[data-testid="column"]:nth-of-type(2) button {
             background-color: #007BFF !important;
             color: white !important;
             border-color: #007BFF !important;
         }
-        div[data-testid="stColumn"]:nth-of-type(3) button:hover,
-        div[data-testid="column"]:nth-of-type(3) button:hover {
+        div[data-testid="stColumn"]:nth-of-type(2) button:hover,
+        div[data-testid="column"]:nth-of-type(2) button:hover {
             background-color: #0056b3 !important;
             color: white !important;
             border-color: #0056b3 !important;
@@ -382,19 +382,20 @@ def main():
             )
         with col2:
             st.download_button(
+                label="📝 Télécharger en DOCX",
+                data=st.session_state.docx_data,
+                file_name=f"Carnet_{st.session_state.safe_filename}.docx",
+                mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            )
+        with col3:
+            st.download_button(
                 label="📕 Télécharger en PDF",
                 data=st.session_state.pdf_data,
                 file_name=f"Carnet_{st.session_state.safe_filename}.pdf",
                 mime="application/pdf",
                 type="primary"
             )
-        with col3:
-            st.download_button(
-                label="📝 Télécharger en DOCX",
-                data=st.session_state.docx_data,
-                file_name=f"Carnet_{st.session_state.safe_filename}.docx",
-                mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-            )
+        
 
 if __name__ == "__main__":
     main()
